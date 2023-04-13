@@ -34,3 +34,7 @@ extract() {
 function cd {
 	builtin cd "$@" && ls -F
 }
+
+function vpn_check {
+  curl https://am.i.mullvad.net/connected && curl https://am.i.mullvad.net/country
+}
