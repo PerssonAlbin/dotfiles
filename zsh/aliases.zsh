@@ -8,3 +8,6 @@ alias dl="cd ~/Downloads"
 
 # Get week number
 alias week='date +%V'
+
+# Color extended ls
+alias ls='ls --color=auto'
