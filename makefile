@@ -1,6 +1,12 @@
 .PHONY: all
-all: ohmyzsh dotfiles ohmyzsh-plugins
+all: basic-installs ohmyzsh dotfiles ohmyzsh-plugins
 
+.PHONY: basic-installs
+basic-installs: ## Installs programs to run this
+ifeq ("$(wildcard /usr/bin/curl)","")
+	sudo apt-get update
+	sudo apt-get install curl zsh
+endif
 
 .PHONY: ohmyzsh
 ohmyzsh: ## Install oh-my-zsh
@@ -18,7 +24,7 @@ ohmyzsh-plugins: ## Install oh-my-zsh plugins
 	fi;
 .PHONY: dotfiles
 dotfiles: ## Link the dotfiles.
-ifneq ("$(wildcard $(HOME)/.zshrc)","")
+ifeq ("$(wildcard $(HOME)/.zshrc)","")
 	echo "source $(CURDIR)/zsh/aliases.zsh" >> $(HOME)/.zshrc
 	echo "source $(CURDIR)/zsh/functions.zsh" >> $(HOME)/.zshrc
 	echo "source $(CURDIR)/zsh/ls_colors.zsh" >> $(HOME)/.zshrc
