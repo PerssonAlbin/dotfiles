@@ -1,11 +1,11 @@
 .PHONY: all
-all: basic-installs ohmyzsh dotfiles ohmyzsh-plugins
+all: basic-installs ohmyzsh dotfiles ohmyzsh-plugins tmux
 
 .PHONY: basic-installs
 basic-installs: ## Installs programs to run this
 ifeq ("$(wildcard /usr/bin/curl)","")
 	sudo apt-get update
-	sudo apt-get install curl zsh
+	sudo apt-get install curl zsh tmux neovim
 endif
 
 .PHONY: ohmyzsh
@@ -30,6 +30,10 @@ ifeq ("$(wildcard $(HOME)/.zshrc)","")
 	echo "source $(CURDIR)/zsh/ls_colors.zsh" >> $(HOME)/.zshrc
 	echo "source $(HOME)/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" >> $(HOME)/.zshrc
 	echo "source $(HOME)/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> $(HOME)/.zshrc
+endif
+.PHONY: tmux
+ifeq ("$(wildcard $(HOME)/.tmux.conf)","")
+	ln -s $(CURDIR)/tmux/tmux.conf $(HOME)/.tmux.conf
 endif
 .PHONY: help
 help:

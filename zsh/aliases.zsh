@@ -11,3 +11,7 @@ alias week='date +%V'
 
 # Color extended ls
 alias ls='ls --color=auto'
+
+# NeoVim as Vim
+alias vim=nvim
+
