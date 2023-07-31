@@ -1,5 +1,5 @@
 .PHONY: all
-all: basic-installs ohmyzsh dotfiles ohmyzsh-plugins tmux
+all: basic-installs ohmyzsh dotfiles ohmyzsh-plugins tmux neovim
 
 .PHONY: basic-installs
 basic-installs: ## Installs programs to run this
@@ -32,8 +32,14 @@ ifeq ("$(wildcard $(HOME)/.zshrc)","")
 	echo "source $(HOME)/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> $(HOME)/.zshrc
 endif
 .PHONY: tmux
+tmux: ## Symlink file to config placement
 ifeq ("$(wildcard $(HOME)/.tmux.conf)","")
 	ln -s $(CURDIR)/tmux/tmux.conf $(HOME)/.tmux.conf
+endif
+.PHONY neovim
+neovim:
+ifeq ("$(wildcard $(HOME)/.config/nvim/lua/chadrc.lua)","")
+	git clone https://github.com/NvChad/NvChad $(HOME)/.config/nvim --depth 1
 endif
 .PHONY: help
 help:
