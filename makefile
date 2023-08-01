@@ -36,7 +36,7 @@ tmux: ## Symlink file to config placement
 ifeq ("$(wildcard $(HOME)/.tmux.conf)","")
 	ln -s $(CURDIR)/tmux/tmux.conf $(HOME)/.tmux.conf
 endif
-.PHONY neovim
+.PHONY: neovim
 neovim:
 ifeq ("$(wildcard $(HOME)/.config/nvim/lua/chadrc.lua)","")
 	git clone https://github.com/NvChad/NvChad $(HOME)/.config/nvim --depth 1
