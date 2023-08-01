@@ -35,6 +35,7 @@ endif
 tmux: ## Symlink file to config placement
 ifeq ("$(wildcard $(HOME)/.tmux.conf)","")
 	ln -s $(CURDIR)/tmux/tmux.conf $(HOME)/.tmux.conf
+	git clone https://github.com/tmux-plugins/tpm $(HOME)/.tmux/plugins/tpm
 endif
 .PHONY: neovim
 neovim:
