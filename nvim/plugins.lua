@@ -25,7 +25,7 @@ local plugins = {
                 "clang-format",
                 "lua-language-server",
                 "autopep8",
-                "cmakelang",
+                "cmakelint",
             },
         },
     }
