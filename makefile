@@ -5,7 +5,7 @@ all: basic-installs ohmyzsh dotfiles ohmyzsh-plugins tmux neovim
 basic-installs: ## Installs programs to run this
 ifeq ("$(wildcard /usr/bin/curl)","")
 	sudo apt-get update
-	sudo apt-get install curl zsh tmux neovim
+	sudo apt-get install curl zsh tmux neovim xclip
 endif
 
 .PHONY: ohmyzsh
