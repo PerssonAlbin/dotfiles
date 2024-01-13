@@ -5,7 +5,12 @@ all: basic-installs ohmyzsh dotfiles ohmyzsh-plugins tmux neovim
 basic-installs: ## Installs programs to run this
 ifeq ("$(wildcard /usr/bin/curl)","")
 	sudo apt-get update
-	sudo apt-get install curl zsh tmux neovim xclip
+	sudo apt-get install curl zsh tmux xclip cmake
+endif
+ifeq ("$(wildcard /usr/local/bin/nvim)","")
+	git clone git@github.com:neovim/neovim.git
+	cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
+	cd neovim && sudo make install
 endif
 
 .PHONY: ohmyzsh
