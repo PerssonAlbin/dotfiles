@@ -21,3 +21,7 @@ alias gia='git add '
 alias gica='git commit --amend'
 alias gid='git diff '
 alias gico='git checkout '
+
+# Quick start for idf env
+alias get_idf='. $HOME/esp/esp-idf/export.sh'
+
