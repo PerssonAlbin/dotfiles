@@ -26,7 +26,7 @@ local plugins = {
                 "lua-language-server",
                 "autopep8",
                 "cmakelang",
-                "swift-mesonlsp",
+                "mesonlsp",
             },
         },
     }
