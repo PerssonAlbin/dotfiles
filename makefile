@@ -44,19 +44,9 @@ ifeq ("$(wildcard $(HOME)/.tmux.conf)","")
 endif
 .PHONY: neovim
 neovim:
-ifeq ("$(wildcard $(HOME)/.config/nvim/lua/custom/chadrc.lua)","")
-	git clone https://github.com/NvChad/NvChad $(HOME)/.config/nvim --depth 1
-endif
-ifneq ("$(wildcard $(HOME)/.config/nvim/lua/custom/chadrc.lua)","")
-	rm $(HOME)/.config/nvim/lua/custom/chadrc.lua
-	ln -s $(CURDIR)/nvim/chadrc.lua $(HOME)/.config/nvim/lua/custom/chadrc.lua
-	ln -s $(CURDIR)/nvim/plugins.lua $(HOME)/.config/nvim/lua/custom/plugins.lua
-	ln -s $(CURDIR)/nvim/mappings.lua $(HOME)/.config/nvim/lua/custom/mappings.lua
-endif
-ifeq ("$(wildcard $(HOME)/.config/nvim/lua/custom/configs/lspconfig.lua)","")
-	mkdir $(HOME)/.config/nvim/lua/custom/configs
-	ln -s $(CURDIR)/nvim/configs/null-ls.lua $(HOME)/.config/nvim/lua/custom/configs/null-ls.lua
-	ln -s $(CURDIR)/nvim/configs/lspconfig.lua $(HOME)/.config/nvim/lua/custom/configs/lspconfig.lua
+ifneq ("$(wildcard $(HOME)/.config/nvim/init.lua)","")
+	rm -rf $(HOME)/.config/nvim/
+	ln -s $(HOME)/.config/nvim/lua/ $(CURDIR)/nvim/
 endif
 .PHONY: help
 help:
