@@ -3,7 +3,7 @@ local fn = vim.fn
 
 opt.backup = false                     -- Disable backup files
 opt.clipboard = "unnamedplus"          -- Neovim uses system clipboard
-opt.cmdheight = 1
+opt.cmdheight = 0
 opt.dir = fn.stdpath("data") .. "/swp" -- Swap file directory
 opt.fileencoding = "utf-8"
 opt.hlsearch = true
