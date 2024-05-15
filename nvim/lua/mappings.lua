@@ -20,7 +20,7 @@ map("n", "<C-q>", ":bp<bar>sp<bar>bn<bar>bd<CR>", default_options)
 
 -- Telescope
 map("n", "<leader>ff", ":Telescope find_files<CR>", { noremap = true, desc = "Telescope: find files" })
-map("n", "/", ":Telescope live_grep<CR>", { noremap = true, desc = "Telescope: find string" })
+map("n", "<leader>fg", ":Telescope live_grep<CR>", { noremap = true, desc = "Telescope: find string" })
 map("n", "<leader>fb", ":Telescope buffers<CR>", { noremap = true, desc = "Telescope: find open buffer" })
 map("n", "<leader>fh", ":Telescope help_tags<CR>", { noremap = true })
 map("n", "<leader>fc", ":Telescope grep_string<cr>", { noremap = true, desc = "Telescope: find string under cursor" })
