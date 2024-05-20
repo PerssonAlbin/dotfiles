@@ -33,6 +33,7 @@ ifeq ("$(wildcard $(HOME)/.zshrc)","")
 	echo "source $(CURDIR)/zsh/aliases.zsh" >> $(HOME)/.zshrc
 	echo "source $(CURDIR)/zsh/functions.zsh" >> $(HOME)/.zshrc
 	echo "source $(CURDIR)/zsh/ls_colors.zsh" >> $(HOME)/.zshrc
+	echo "source $(CURDIR)/zsh/history.zsh" >> $(HOME)/.zshrc
 	echo "source $(HOME)/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" >> $(HOME)/.zshrc
 	echo "source $(HOME)/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> $(HOME)/.zshrc
 endif
