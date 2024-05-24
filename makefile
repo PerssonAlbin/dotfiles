@@ -46,9 +46,9 @@ ifeq ("$(wildcard $(HOME)/.tmux.conf)","")
 endif
 .PHONY: neovim
 neovim:
-ifneq ("$(wildcard $(HOME)/.config/nvim/init.lua)","")
+ifeq ("$(wildcard $(HOME)/.config/nvim)","")
 	rm -rf $(HOME)/.config/nvim/
-	ln -s $(HOME)/.config/nvim/lua/ $(CURDIR)/nvim/
+	ln -s $(CURDIR)/nvim $(HOME)/.config/nvim
 endif
 .PHONY: help
 help:
