@@ -7,3 +7,5 @@ require "options"
 require "autocmd"
 require "mappings"
 require "lazy-conf"
+
+require "theme_selector"

@@ -15,8 +15,6 @@ require("lazy").setup({
 	spec = {
 		{ import = "plugins" },
 		{ import = "plugins.lsp" },
-	},
-	install = {
-		colorscheme = { "catppuccin" },
+		{ import = "plugins.themes" },
 	},
 })
