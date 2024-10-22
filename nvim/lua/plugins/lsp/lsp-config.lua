@@ -18,7 +18,8 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
-		local capabilities = cmp_nvim_lsp.default_capabilities()
+		local normal_capabilties = vim.lsp.protocol.make_client_capabilities()
+		local capabilities = cmp_nvim_lsp.default_capabilities(normal_capabilties)
 
 		lspconfig["clangd"].setup({
 			capabilities = capabilities,
@@ -43,6 +44,11 @@ return {
 					},
 				},
 			},
+		})
+
+		lspconfig["volar"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
 		})
 	end
 }
