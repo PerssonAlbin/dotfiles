@@ -36,6 +36,9 @@ return {
 						run_selection = '<C-CR>',
 						run_input     = '<CR>',
 					},
+					overseer = {
+						enabled = true,
+					},
 				},
 			}
 		})
