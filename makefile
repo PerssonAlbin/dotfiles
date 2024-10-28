@@ -29,14 +29,14 @@ ohmyzsh-plugins: ## Install oh-my-zsh plugins
 	fi;
 .PHONY: dotfiles
 dotfiles: ## Link the dotfiles.
-ifeq ("$(wildcard $(HOME)/.zshrc)","")
-	echo "source $(CURDIR)/zsh/aliases.zsh" >> $(HOME)/.zshrc
-	echo "source $(CURDIR)/zsh/functions.zsh" >> $(HOME)/.zshrc
-	echo "source $(CURDIR)/zsh/ls_colors.zsh" >> $(HOME)/.zshrc
-	echo "source $(CURDIR)/zsh/history.zsh" >> $(HOME)/.zshrc
-	echo "source $(HOME)/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" >> $(HOME)/.zshrc
-	echo "source $(HOME)/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> $(HOME)/.zshrc
-endif
+	if [ -f $(HOME)/.zshrc ]; then \
+		echo "source $(CURDIR)/zsh/aliases.zsh" >> $(HOME)/.zshrc; \
+		echo "source $(CURDIR)/zsh/functions.zsh" >> $(HOME)/.zshrc; \
+		echo "source $(CURDIR)/zsh/ls_colors.zsh" >> $(HOME)/.zshrc; \
+		echo "source $(CURDIR)/zsh/history.zsh" >> $(HOME)/.zshrc; \
+		echo "source $(HOME)/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" >> $(HOME)/.zshrc; \
+		echo "source $(HOME)/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> $(HOME)/.zshrc; \
+	fi;
 .PHONY: tmux
 tmux: ## Symlink file to config placement
 ifeq ("$(wildcard $(HOME)/.tmux.conf)","")
