@@ -38,3 +38,13 @@ function cd {
 function vpn_check {
   curl https://am.i.mullvad.net/connected && curl https://am.i.mullvad.net/country
 }
+
+function bitbake {
+  command bitbake "$@"
+
+	if [[ $? -eq 0 ]]; then
+		paplay /usr/share/sounds/freedesktop/stereo/dialog-information.oga 2>/dev/null &
+	else
+		paplay /usr/share/sounds/freedesktop/stereo/dialog-error.oga 2>/dev/null &
+	fi
+}
