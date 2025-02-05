@@ -50,5 +50,23 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
+
+		lspconfig["bashls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+
+			filetypes = { "sh" },
+		})
+
+		lspconfig["bitbake_ls"].setup({
+			on_attach = function(client)
+				client.server_capabilities.semanticTokensProvider = vim.NIL
+			end,
+		})
+
+		lspconfig["ginko_ls"].setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+		})
 	end
 }
