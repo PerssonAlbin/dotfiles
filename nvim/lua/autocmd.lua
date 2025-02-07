@@ -34,3 +34,22 @@ api.nvim_create_autocmd({ "BufWritePre" }, {
 		vim.lsp.buf.format { async = false }
 	end
 })
+
+-- Highlight trailing spaces and tabs
+vim.api.nvim_create_autocmd('ColorScheme', {
+	pattern = "*",
+	callback = function()
+		local error_hl = vim.api.nvim_get_hl(0, { name = "Error" })
+		local error_color = error_hl.fg
+
+		vim.api.nvim_set_hl(0, 'ShowWhitespace', { bg = error_color })
+	end
+})
+
+api.nvim_create_autocmd("BufEnter", {
+	pattern = "*",
+	callback = function()
+		vim.fn.matchadd('ShowWhitespace', [[\s\+$]]) -- Highlight trailing spaces
+		vim.fn.matchadd('ExtraWhitespace', [[^\t\+]]) -- Highlight trailing tabs
+	end
+})
