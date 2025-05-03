@@ -50,6 +50,11 @@ ifeq ("$(wildcard $(HOME)/.config/nvim)","")
 	rm -rf $(HOME)/.config/nvim/
 	ln -s $(CURDIR)/nvim $(HOME)/.config/nvim
 endif
+.PHONY: alacritty
+alacritty:
+ifeq ("$(wildcard $(HOME)/.alacritty.toml)","")
+	ln -s $(CURDIR)/alacritty/config.toml $(HOME)/.alacritty.toml
+endif
 .PHONY: help
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'

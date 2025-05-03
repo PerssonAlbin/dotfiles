@@ -1,0 +1,9 @@
+[font.normal]
+family = "MonaspiceAr NF"
+style = "Regular"
+
+[font]
+size = 12
+
+[terminal.shell]
+program = "/usr/bin/zsh"
