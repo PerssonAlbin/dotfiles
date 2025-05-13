@@ -13,24 +13,28 @@ return {
 
 		telescope.setup({
 			defaults = {
+				layout_strategy = "vertical",
+				layout_config = {
+					vertical = {
+						prompt_position = "bottom",
+						width = { padding = 5 },
+						height = { padding = 5 },
+						preview_width = 0.5,
+					},
+					width = 0.90,
+					height = 0.90,
+				},
 				path_display = { "truncate " },
 				file_ignore_patterns = { "^node_modules/", "^build/", "^dist/" },
 				mappings = {
 					i = {
 						["<C-k>"] = actions.move_selection_previous, -- move to prev result
 						["<C-j>"] = actions.move_selection_next, -- move to next result
-						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 					},
 				},
 			},
 			extensions = {
 				cmdline = {
-					picker   = {
-						layout_config = {
-							width  = 120,
-							height = 25,
-						}
-					},
 					mappings = {
 						complete      = '<Tab>',
 						run_selection = '<C-CR>',
