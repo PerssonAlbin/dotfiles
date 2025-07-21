@@ -13,6 +13,7 @@ return {
 				javascript = { "prettier" },
 				json = { "prettier" },
 				python = { "black" },
+				sh = { "shellcheck" },
 			},
 			format_on_save = {
 				lsp_format = "fallback",

@@ -42,6 +42,8 @@ return {
 				"cmakelang",
 				"prettier",
 				"ginko_ls",
+				"shellcheck",
+				"write-good",
 			},
 		})
 	end

@@ -4,7 +4,10 @@ return {
 	config = function()
 		local lint = require("lint")
 		lint.linters_by_ft = {
-			elixir = { "credo" }
+			elixir = { "credo" },
+			sh = { "shellcheck" },
+			text = { "write_good" },
+			markdown = { "write_good" },
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
