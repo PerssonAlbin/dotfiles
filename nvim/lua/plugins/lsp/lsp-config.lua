@@ -68,5 +68,20 @@ return {
 			on_attach = on_attach,
 			capabilities = capabilities,
 		})
+
+		lspconfig["elixirls"].setup({
+			cmd = { "/home/denmarkpolice/.local/share/nvim/mason/packages/elixir-ls/language_server.sh" },
+			filetypes = { "elixir" },
+			on_attach = function(client, bufnr)
+				local filetype = vim.bo[bufnr].filetype
+
+				if filetype ~= "elixir" and filetype ~= "eelixir" then
+					client.server_capabilities.documentFormattingProvider = false
+					client.server_capabilities.documentRangeFormattingProvider = false
+					vim.lsp.buf_detach_client(bufnr, client.id)
+					return
+				end
+			end,
+		})
 	end
 }
