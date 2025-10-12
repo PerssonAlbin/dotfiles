@@ -5,7 +5,6 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 	},
 	config = function()
-		local lspconfig = require("lspconfig")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 
@@ -21,12 +20,12 @@ return {
 		local normal_capabilties = vim.lsp.protocol.make_client_capabilities()
 		local capabilities = cmp_nvim_lsp.default_capabilities(normal_capabilties)
 
-		lspconfig["clangd"].setup({
+		vim.lsp.config("clangd", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
-		lspconfig["lua_ls"].setup({
+		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			settings = { -- custom settings for lua
@@ -46,30 +45,30 @@ return {
 			},
 		})
 
-		lspconfig["volar"].setup({
+		vim.lsp.config("volar", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
-		lspconfig["bashls"].setup({
+		vim.lsp.config("bashls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 
 			filetypes = { "sh" },
 		})
 
-		lspconfig["bitbake_ls"].setup({
+		vim.lsp.config("bitbake_ls", {
 			on_attach = function(client)
 				client.server_capabilities.semanticTokensProvider = vim.NIL
 			end,
 		})
 
-		lspconfig["ginko_ls"].setup({
+		vim.lsp.config("ginko_ls", {
 			on_attach = on_attach,
 			capabilities = capabilities,
 		})
 
-		lspconfig["elixirls"].setup({
+		vim.lsp.config("elixirls", {
 			cmd = { "/home/denmarkpolice/.local/share/nvim/mason/packages/elixir-ls/language_server.sh" },
 			filetypes = { "elixir" },
 			on_attach = function(client, bufnr)
