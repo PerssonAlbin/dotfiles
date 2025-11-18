@@ -133,7 +133,7 @@ neovim-install: ## Install Neovim from source
 		echo "Neovim is already installed."; \
 	else \
 		echo "Installing Neovim..."; \
-		git clone git@github.com:neovim/neovim.git ../; \
+		git clone git@github.com:neovim/neovim.git ../neovim; \
 		cd ../neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo; \
 		cd ../neovim && sudo make install; \
 		echo "Installation finished!"; \
