@@ -28,3 +28,6 @@ map("n", "<leader>fc", ":Telescope grep_string<cr>", { noremap = true, desc = "T
 -- Telescope cmd
 vim.api.nvim_set_keymap('n', ':', ':Telescope cmdline<CR>', { noremap = true, desc = "Cmdline" })
 vim.api.nvim_set_keymap('n', '<leader><leader>', ':Telescope cmdline<CR>', { noremap = true, desc = "Cmdline" })
+
+-- Copilot Chat
+vim.api.nvim_set_keymap('n', ';', ':CopilotChatToggle<CR>', { noremap = true, desc = "Cmdline" })

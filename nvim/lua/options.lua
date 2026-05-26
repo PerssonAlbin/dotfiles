@@ -23,6 +23,7 @@ opt.termguicolors = true
 opt.undodir = fn.stdpath("data") .. "/undodir" -- Undo file directory
 opt.undofile = true                            -- Enable Undo files
 opt.wildmode = "full"
+opt.splitbelow = true
 opt.wildignorecase = true
 opt.wildignore = [[
 .git,.hg,.svn
